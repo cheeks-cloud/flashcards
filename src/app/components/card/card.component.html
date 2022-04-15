@@ -1,0 +1,19 @@
+<h1>This is What i have Learnt So far</h1>
+
+<div  class="container">
+  <ul *ngFor="let card of cards;let i = index">
+    <li>{{card.name}}</li> 
+     <button (click)="toggleDescription(i)"> Show Description </button>
+       
+        <!-- i bind the child(card property=input) to parent so that it can receive data from parent -->
+      <app-card-detail  *ngIf="card.showDescription" [card]="card"
+        (isDone)="completeCard ($event, i)">
+      </app-card-detail>
+       <!--    is done is emitted as an event,then it should call completeCard -->
+  
+  </ul>
+     <div class="col-md-6">
+       <app-card-form (addCard)="addNewCard($event)"></app-card-form>
+     </div>
+
+</div>

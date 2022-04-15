@@ -1,0 +1,33 @@
+<p>Add more Cards</p>
+<form  (ngSubmit)="submitCard()" #cardForm="ngForm" >
+
+<div class="form-group">
+  <label for="name">Name</label>
+  <input type="text" required class="form-control" id="name"
+  [(ngModel)]="newCard.name" name="name" #name="ngModel">
+
+  <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+    <p>Name is required</p>
+
+  </div>
+
+</div>
+<div class="form-group">
+
+  <label for="description">Description</label>
+  <textarea class="form-control" id="description" rows="4" required
+  [(ngModel)]="newCard.description" description="description" #description="ngModel">
+
+  </textarea>
+  <div [hidden]="description.valid || description.pristine" class="alert alert-danger">
+    <p>Description is required</p>
+
+  </div>
+
+</div>
+
+ <button type="submit" class="btn btn-primary"> Add A Card </button>
+
+</form>
+
+
